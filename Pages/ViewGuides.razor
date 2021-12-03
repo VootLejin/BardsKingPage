@@ -1,0 +1,25 @@
+﻿@page "/viewguides"
+@using BardsKingPage.Services
+
+<h3>Guides</h3>
+
+<ul>
+    @foreach(var guide in GuideList)
+    {
+        <li>
+            <a href="@guide.Link.AbsoluteUri">@guide.Title</a> - <p>@guide.Description</p>
+        </li>
+    }
+</ul>
+
+@code {
+    public List<Guide> GuideList { get; set; }
+
+    [Inject]
+    public IGuideService GuideService { get; set; }
+
+    protected override void OnInitialized()
+    {
+        GuideList = GuideService.GetGuides();
+    }
+}
