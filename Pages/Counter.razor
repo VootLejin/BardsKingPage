@@ -2,15 +2,78 @@
 
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+<p>Current count: @currentCount </p>
+<p>@Nice</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="IncrementCount">+1</button>
+<button class="btn btn-primary" @onclick="IncrementBy5">+5</button>
+<button class="btn btn-primary" @onclick="IncrementTo69">69</button>
+<button class="btn btn-primary" @onclick="DecrementBy1">-1</button>
+<button class="btn btn-primary" @onclick="DecrementBy5">-5</button>
 
-@code {
+
+@code 
+{
     private int currentCount = 0;
+
+    private string Nice = "";
 
     private void IncrementCount()
     {
         currentCount++;
+        if (currentCount == 69)
+        {
+            Nice = "Nice,";
+        }
+        else
+        {
+            Nice = "";
+        }
+    }
+
+    private void IncrementTo69()
+    {
+        currentCount = 69;
+        Nice = "Nice,";
+    }
+
+    private void IncrementBy5()
+    {
+        currentCount += 5;
+        if (currentCount == 69)
+        {
+            Nice = "Nice,";
+        }
+        else
+        {
+            Nice = "";
+        }
+
+    }
+
+    private void DecrementBy1()
+    {
+        currentCount--;
+        if (currentCount == 69)
+        {
+            Nice = "Nice,";
+        }
+        else
+        {
+            Nice = "";
+        }
+    }
+
+    private void DecrementBy5()
+    {
+        currentCount -= 5;
+        if (currentCount == 69)
+        {
+            Nice = "Nice,";
+        }
+        else
+        {
+            Nice = "";
+        }
     }
 }
